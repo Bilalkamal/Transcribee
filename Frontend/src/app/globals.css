@@ -1,0 +1,301 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 95%;
+    --foreground: 206 14% 22%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 206 14% 22%;
+ 
+    --popover: 0 0% 100%;
+    --popover-foreground: 206 14% 22%;
+ 
+    --primary: 44 97% 48%;
+    --primary-foreground: 0 0% 100%;
+ 
+    --secondary: 193 20% 28%;
+    --secondary-foreground: 0 0% 100%;
+ 
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+ 
+    --accent: 39 94% 50%;
+    --accent-foreground: 0 0% 100%;
+ 
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+ 
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 44 97% 48%;
+ 
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 210 19% 15%;
+    --foreground: 0 0% 95%;
+ 
+    --card: 210 19% 15%;
+    --card-foreground: 0 0% 95%;
+ 
+    --popover: 210 19% 15%;
+    --popover-foreground: 0 0% 95%;
+ 
+    --primary: 44 97% 48%;
+    --primary-foreground: 0 0% 100%;
+ 
+    --secondary: 193 20% 28%;
+    --secondary-foreground: 0 0% 100%;
+ 
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+ 
+    --accent: 39 94% 50%;
+    --accent-foreground: 0 0% 100%;
+ 
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+ 
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 44 97% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+} 
+
+@layer utilities {
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+}
+
+/* Improve scrollbar for mobile */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--primary)) transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--primary));
+  border-radius: 3px;
+}
+
+/* Add pull-to-refresh styles */
+@supports (-webkit-overflow-scrolling: touch) {
+  .pull-to-refresh {
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+} 
+
+/* Gradient Background Animation */
+.gradient-animation {
+  background: radial-gradient(
+    circle at top left,
+    transparent 0%,
+    hsl(var(--primary) / 0.05) 25%,
+    transparent 50%
+  ),
+  radial-gradient(
+    circle at bottom right,
+    transparent 0%,
+    hsl(var(--accent) / 0.05) 25%,
+    transparent 50%
+  ),
+  radial-gradient(
+    circle at center,
+    hsl(var(--background)) 0%,
+    hsl(var(--background)) 100%
+  );
+  background-size: 100% 100%, 100% 100%, 100% 100%;
+  background-position: 0% 0%, 100% 100%, 0% 0%;
+  animation: subtleBreathing 10s ease-in-out infinite;
+}
+
+@keyframes subtleBreathing {
+  0%, 100% {
+    background-size: 100% 100%, 100% 100%, 100% 100%;
+  }
+  50% {
+    background-size: 120% 120%, 120% 120%, 100% 100%;
+  }
+}
+
+/* Dark theme specific adjustments */
+.dark .gradient-animation {
+  background: radial-gradient(
+    circle at top left,
+    transparent 0%,
+    hsl(var(--primary) / 0.03) 25%,
+    transparent 50%
+  ),
+  radial-gradient(
+    circle at bottom right,
+    transparent 0%,
+    hsl(var(--accent) / 0.03) 25%,
+    transparent 50%
+  ),
+  radial-gradient(
+    circle at center,
+    hsl(var(--background)) 0%,
+    hsl(var(--background)) 100%
+  );
+}
+
+/* State Transitions */
+.fade-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* Custom Cursor */
+.bee-cursor {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><text x='0' y='20'>🐝</text></svg>"), auto;
+}
+
+/* Interactive Elements Hover States */
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark Mode Contrast Improvements */
+.dark .high-contrast {
+  --background: 210 19% 10%;
+  --card: 210 19% 12%;
+  --muted: 217.2 32.6% 20%;
+  --border: 217.2 32.6% 25%;
+}
+
+/* Loading Animation */
+.loading-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .5; }
+}
+
+/* Hover Effects */
+.hover-glow {
+  transition: all 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 15px hsl(var(--primary) / 0.5);
+}
+
+/* Card Transitions */
+.card-enter {
+  transform: scale(0.95);
+  opacity: 0;
+}
+
+.card-enter-active {
+  transform: scale(1);
+  opacity: 1;
+  transition: transform 300ms, opacity 300ms;
+}
+
+/* Update the Enhanced Input Field Styling */
+.enhanced-input-container {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.08),
+    0 0 0 1px hsl(var(--border)),
+    0 0 0 3px hsl(var(--primary) / 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.enhanced-input-container:hover {
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.12),
+    0 0 0 1px hsl(var(--primary) / 0.3),
+    0 0 0 4px hsl(var(--primary) / 0.15);
+  border-color: hsl(var(--primary) / 0.5);
+}
+
+.enhanced-input-container:focus-within {
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.15),
+    0 0 0 1px hsl(var(--primary)),
+    0 0 0 4px hsl(var(--primary) / 0.25);
+  border-color: hsl(var(--primary));
+}
+
+/* Dark mode adjustments */
+.dark .enhanced-input-container {
+  background: hsl(var(--card));
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.4),
+    0 0 0 1px hsl(var(--border)),
+    0 0 0 3px hsl(var(--primary) / 0.15);
+}
+
+.dark .enhanced-input-container:hover {
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.5),
+    0 0 0 1px hsl(var(--primary) / 0.4),
+    0 0 0 4px hsl(var(--primary) / 0.2);
+}
+
+.dark .enhanced-input-container:focus-within {
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.6),
+    0 0 0 1px hsl(var(--primary)),
+    0 0 0 4px hsl(var(--primary) / 0.3);
+}
+
+/* Enhanced Header and Footer */
+.enhanced-header {
+  background: hsl(var(--background) / 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid hsl(var(--border));
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.enhanced-footer {
+  background: hsl(var(--background) / 0.8);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid hsl(var(--border));
+  box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.05);
+}
+  

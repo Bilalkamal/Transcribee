@@ -1,0 +1,20 @@
+/* Dark Theme Variables */
+:root {
+    --background-color: #1E252C;
+    --primary-color: #F2B705;
+    --secondary-color: #385359;
+    --accent-color: #F2A30F;
+    --text-color: #F2F2F2;
+}
+
+/* Light Theme Variables */
+@media (prefers-color-scheme: light) {
+    :root {
+        --background-color: #F2F2F2;
+        --primary-color: #F2B705;
+        --secondary-color: #385359;
+        --accent-color: #F2A30F;
+        --text-color: #313A40;
+    }
+}
+  

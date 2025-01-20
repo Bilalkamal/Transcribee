@@ -1,0 +1,38 @@
+<!-- options.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Transcrib.ee Extension Options</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Transcrib.ee - AI Precision, Sweet as Honey</h1>
+    <p class="slogan">From Hive to Text, Transcribing at Its Best</p>
+    <div class="option">
+      <h2>Keyboard Shortcut</h2>
+      <div class="shortcut-info">
+        <p>Current default shortcut: <kbd>Cmd</kbd>+<kbd>E</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux)</p>
+        <div class="customize-section">
+          <h3>How to Customize Your Shortcut:</h3>
+          <ol>
+            <li>Click the button below to open Chrome's shortcuts page</li>
+            <li>Find "Transcrib.ee" in the list</li>
+            <li>Click the shortcut input box</li>
+            <li>Press your desired key combination</li>
+          </ol>
+          <button id="openShortcuts" class="button">Customize Shortcut</button>
+          <div id="shortcutStatus" class="status-message"></div>
+        </div>
+      </div>
+    </div>
+    <div class="option">
+      <h2>Customize Shortcut</h2>
+      <p>To change the keyboard shortcut, navigate to the <a href="chrome://extensions/shortcuts" target="_blank">Chrome Shortcuts Page</a> and set your preferred shortcut for the "Transcrib.ee - AI Precision, Sweet as Honey" extension.</p>
+    </div>
+    <div id="status"></div>
+  </div>
+  <script src="options.js"></script>
+</body>
+</html>

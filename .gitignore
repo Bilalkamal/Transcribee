@@ -1,0 +1,168 @@
+# .gitignore
+
+# Python-generated files
+__pycache__/
+*.py[oc]
+*$py.class
+*.so
+.Python
+build/
+dist/
+develop-eggs/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Cursor rules
+.cursorrules
+
+# Environment variables
+.env*
+!.env.example
+
+# Virtual environments
+.venv
+venv/
+env/
+ENV/
+
+# Data
+data/
+Archive/
+
+# Logs
+*.log
+logs/
+.nyc_output
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# Zip files
+*.zip
+
+# PDF files
+*.pdf
+
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.npm
+.yarn
+.yarn-integrity
+
+# Node.js build output
+out/
+.next/
+build/
+dist/
+storybook-static
+
+# Environment
+.env.development.local
+.env.test.local
+.env.production.local
+.env*.local
+.env.development
+.env.test
+.env.production
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# IDE specific files
+.idea/
+*.swp
+*.swo
+.vs/
+
+# Dependency lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Coverage directory
+coverage/
+.htmlcov/
+.coverage.*
+coverage.xml
+*.cover
+
+# Cache directories
+.cache/
+.parcel-cache/
+
+# Local development
+*.local
+
+# Next.js/React specific
+.vercel
+.next/
+out/
+public/sw.js
+public/workbox-*.js
+public/worker-*.js
+public/sw.js.map
+public/workbox-*.js.map
+public/worker-*.js.map
+next-env.d.ts
+
+# React/Next.js build outputs
+.storybook-static
+
+# React testing
+coverage/
+.nyc_output
+
+# React development
+.eslintcache
+
+# React Native (if applicable)
+.expo
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+
+# Typescript
+*.tsbuildinfo
+
+# PWA files
+public/sw.js
+public/workbox-*.js
+public/worker-*.js
+public/sw.js.map
+public/workbox-*.js.map
+public/worker-*.js.map
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# DS_Store files
+.DS_Store
+._.DS_Store
+**/.DS_Store
+**/._.DS_Store
+

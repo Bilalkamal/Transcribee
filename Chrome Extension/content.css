@@ -1,0 +1,31 @@
+.ytp-button#transcribee-button {
+  width: 36px !important;
+  height: 36px !important;
+  padding: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+}
+
+.ytp-button#transcribee-button svg {
+  width: 20px !important;
+  height: 20px !important;
+  fill: currentColor !important;
+  opacity: 0.9 !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+}
+
+.ytp-button#transcribee-button:hover svg {
+  opacity: 1;
+}
+
+.ytp-transcribee-title {
+  margin-left: 6px;
+  font-size: 13px;
+  color: #fff;
+}

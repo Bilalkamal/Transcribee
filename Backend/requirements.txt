@@ -1,0 +1,12 @@
+# requirements.txt
+fastapi
+uvicorn
+pydantic
+redis
+pymongo
+requests
+flask
+pytubefix
+groq
+python-dotenv
+ffmpeg-python

@@ -1,0 +1,62 @@
+{
+    "manifest_version": 3,
+    "name": "Transcrib.ee - Transcribe YouTube videos with ease.",
+    "description": "From Hive to Text, Transcribing at Its Best",
+    "version": "1.0.1",
+    "icons": {
+        "16": "assets/icons/icon-16.png",
+        "32": "assets/icons/icon-32.png",
+        "48": "assets/icons/icon-48.png",
+        "128": "assets/icons/icon-128.png"
+    },
+    "permissions": [
+        "activeTab",
+        "scripting",
+        "storage",
+        "notifications"
+    ],
+    "action": {
+        "default_icon": {
+            "16": "assets/icons/icon-16.png",
+            "32": "assets/icons/icon-32.png",
+            "48": "assets/icons/icon-48.png",
+            "128": "assets/icons/icon-128.png"
+        },
+        "default_title": "Transcrib.ee - Transcribe YouTube videos with ease."
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://www.youtube.com/watch*",
+                "https://www.youtu.be/*"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ],
+    "options_page": "options.html",
+    "commands": {
+        "trigger-transcription": {
+            "suggested_key": {
+                "default": "Ctrl+E",
+                "mac": "Command+E"
+            },
+            "description": "Trigger Transcrib.ee transcription"
+        }
+    },
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "assets/overlay/overlay-icon.png",
+                "assets/svg_icon/Transcrib.ee-Logo.svg"
+            ],
+            "matches": [
+                "<all_urls>"
+            ]
+        }
+    ]
+}
