@@ -170,18 +170,22 @@ def merge_transcriptions(transcription_chunks: List[Dict[str, Any]]) -> Dict[str
 
 def process_transcription(video_id: str, job_id: str):
     overall_start_time = time.time()
+    logging.info(f"Starting transcription process for video {video_id} (Job ID: {job_id})")
 
     # Update job status to 'processing'
     jobs_collection.update_one(
         {'job_id': job_id},
         {'$set': {'status': 'processing', 'updated_at': datetime.utcnow()}}
     )
+    logging.info("Job status updated to 'processing'")
 
-    # Create a temporary directory for audio files should be deleted after processing
+    # Create a temporary directory for audio files
     temp_dir = tempfile.mkdtemp(prefix="transcription_temp_")
+    logging.info(f"Created temporary directory: {temp_dir}")
 
     try:
         # Step 1: Download YouTube Audio
+        logging.info("Step 1: Downloading YouTube audio...")
         download_result = download_youtube_audio(video_id, temp_dir)
         if not download_result:
             error_msg = "Failed to download audio from YouTube"
@@ -199,6 +203,8 @@ def process_transcription(video_id: str, job_id: str):
 
         audio_file_path = download_result["audio_file_path"]
         video_title = download_result["video_title"]
+        logging.info(f"Successfully downloaded audio: {audio_file_path}")
+        logging.info(f"Video title: {video_title}")
 
         # Step 2: Check File Size and Chunk if Necessary
         chunks = chunk_audio_file(audio_file_path, temp_dir)

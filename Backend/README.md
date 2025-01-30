@@ -76,6 +76,7 @@ This backend comprises three key components:
 ### Prerequisites
 Ensure you have the following installed:
 - Python 3.9+
+- Node.js 16+ and npm (required for YouTube token generation)
 - Redis server
 - MongoDB instance
 
